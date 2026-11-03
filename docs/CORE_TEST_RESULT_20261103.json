@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "principal_annual_states": 150,
+  "principal_adjacent_year_pairs": 120,
+  "specifications_with_a_contributor_change": 4,
+  "contributor_changes": 8,
+  "minimum_jaccard_for_changed_labels": 0.9689207388098996,
+  "four_reference_tables_byte_identical": {
+    "Joint_States_150.csv": true,
+    "Adjacent_Transitions_120.csv": true,
+    "Joint_Sequences_30.csv": true,
+    "Contribution_Decomposition_120.csv": true
+  },
+  "synthetic_experiment_b_fresh_solutions": 81,
+  "synthetic_max_ratio_error": 6.8833827526759706e-15,
+  "limitations": "Saved continuous summit and contour records are INPUTS for the joint audit; this suite does not fresh-recompute every summit/contour of the whole publication."
+}

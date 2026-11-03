@@ -1,0 +1,8 @@
+# Preserve exact source CSV bytes, including UTF-8 BOM and CRLF records.
+*.csv -text
+# Ensure portable scripts and documentation line endings.
+*.py text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.txt text eol=lf
+*.json text eol=lf

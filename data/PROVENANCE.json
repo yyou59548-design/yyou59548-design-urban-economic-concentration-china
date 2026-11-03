@@ -1,0 +1,58 @@
+{
+  "domains": {
+    "original_path": "Replication_Inputs/05_Recomputed_Results/National_2011_2023/Domain_Records.csv",
+    "original_rows": 27970,
+    "original_sha256": "29ef3e2ad7f3a629cad0fa8048af2c0725500983f3130071d266480848928bc5",
+    "public_path": "data/derived/05_Recomputed_Results/National_2011_2023/Domain_Records.csv",
+    "subset_rows": 150,
+    "subset_sha256": "a39353457a9a28e42c33c633a6c21d4528b8b79ba08b170667f2921bd4311d4d",
+    "file_bytes": 355541,
+    "selection": "scenario corrected_scope_A; PRD reference; max_dim 360; scenario_2019_fixed; years 2019–2023"
+  },
+  "local_peaks": {
+    "original_path": "Replication_Inputs/06_Robustness/Joint_Location_GDP_Bandwidth/Local_Continuous_Peaks.csv",
+    "original_rows": 6450,
+    "original_sha256": "9920435c97d0b382a5d856c0394a84e8c5e9c4a4884fe5f95ceeba1e7427eaca",
+    "public_path": "data/derived/06_Robustness/Joint_Location_GDP_Bandwidth/Local_Continuous_Peaks.csv",
+    "subset_rows": 150,
+    "subset_sha256": "330d6e67cccde37ec93eb5c4806e8fae72fb0fc7e8c098db59e0bb3c1bc8d4cb",
+    "file_bytes": 133849,
+    "selection": "scenario corrected_scope_A; years 2019–2023"
+  },
+  "sequences": {
+    "original_path": "Replication_Inputs/06_Robustness/Joint_Location_GDP_Bandwidth/Five_Year_Sequences.csv",
+    "original_rows": 1290,
+    "original_sha256": "cd937f18bcfedf515a51891d7a1db6f46935327a84b26e4fead10f16091a8382",
+    "public_path": "data/derived/06_Robustness/Joint_Location_GDP_Bandwidth/Five_Year_Sequences.csv",
+    "subset_rows": 30,
+    "subset_sha256": "8e7ce9bf44802b13d436357091144b03cad06bf1f8ce53b65200ef4d5c78f5c3",
+    "file_bytes": 22240,
+    "selection": "scenario corrected_scope_A"
+  },
+  "vectors": {
+    "original_path": "Replication_Inputs/03_Harmonization/Analysis_Vectors.csv",
+    "original_rows": 141010,
+    "original_sha256": "c7712fa9e96ef0c3e0e73eebb9d821faa1319b7610c21b31d7adc5985e0cc2c6",
+    "public_path": "data/derived/03_Harmonization/Analysis_Vectors.csv",
+    "subset_rows": 2950,
+    "subset_sha256": "dc9d2a60cf0a72239a278e7b0192f27ac5291547665a3087edefd308dd72beea",
+    "file_bytes": 220882,
+    "selection": "scenario corrected_scope_A; years 2019–2023"
+  },
+  "coordinates": {
+    "original_path": "Replication_Inputs/03_Harmonization/Analysis_Coordinates.csv",
+    "original_rows": 2655,
+    "original_sha256": "aaad008b857cdbb51f1d9519a3f9ff356f671873c4d6310143ed2dfae0796101",
+    "public_path": "data/derived/03_Harmonization/Analysis_Coordinates.csv",
+    "subset_rows": 885,
+    "subset_sha256": "2c0f15d913afa41969ec850494027ac49c657568dd3ba81025584cd71888e7b1",
+    "file_bytes": 87451,
+    "selection": "Scope A"
+  },
+  "experiment_b": {
+    "original_archive": "TGIS_20261103_Term_Precision_Complete.zip",
+    "original_member": "TGIS_Term_Precision_20261103/Evidence_Snapshot_Unchanged/Experiment_B_Recomputed_Tie_Path_81.csv",
+    "path": "data/references/Experiment_B_Recomputed_Tie_Path_81.csv",
+    "sha256": "37f4f1404a3e3864c11957c7b08ad7e026f1f24f1dee7fc3063062a513e5e445"
+  }
+}
