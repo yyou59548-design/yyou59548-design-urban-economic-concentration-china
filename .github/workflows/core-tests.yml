@@ -15,6 +15,7 @@ jobs:
         with:
           python-version: '3.13'
           cache: pip
+          cache-dependency-path: requirements-core.txt
       - run: python -m pip install -r requirements-core.txt
       - run: python scripts/verify_manifest.py
       - run: python tests/run_core_checks.py
