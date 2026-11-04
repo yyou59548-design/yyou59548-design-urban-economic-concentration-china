@@ -1,0 +1,43 @@
+{
+  "report_date": "2026-11-04",
+  "release_visibility": "private",
+  "result": "PARTIAL_PASS_CORE_AND_INTEGRITY",
+  "baseline_commit_sha_before_this_extension": "a1ced564009e29d6ecda1bc4fb3116a634cf309f",
+  "tests_actually_run_locally": {
+    "original_manifest": "PASS_27_FILES",
+    "core_empirical_and_experiment_b": "PASS",
+    "independent_theory_and_prd2021": "PASS",
+    "integrity_negative_cases": "PASS_4_CASES",
+    "three_volume_crc_and_paths": "PASS_5403_UNIQUE",
+    "extracted_release_sha256": "PASS_5401_FILES",
+    "original_protected_inputs": "PASS_10_3_46",
+    "original_p2_finite_regressions": "PASS_8_CASES",
+    "archived_compact_four_stage_fresh_run": "NOT_RUN_MISSING_XLRD_2_0_1",
+    "full_2062_field_regeneration": "NOT_RUN",
+    "full_150_contour_from_zero_regeneration": "NOT_RUN",
+    "source_cell_publisher_authentication": "NOT_COMPLETE"
+  },
+  "independent_theory_results": {
+    "experiment_b_fresh_solutions": 81,
+    "experiment_b_ratios": {"alpha_0_10": 1.4086747663119072, "alpha_0_50": 1.0, "alpha_0_90": 0.7098870682678087},
+    "contributor_first_event_times": [0.34247296565942, 0.4747879198414802],
+    "component_first_event_times": [0.6770407279499374, 0.557091164462837],
+    "prd2021_nominal": {"leading_city": "广州", "tie_ratio": 1.0956998712571622},
+    "prd2021_growth_chain": {"leading_city": "深圳", "tie_ratio": 1.0962907580258399}
+  },
+  "full_source_archive": {
+    "original_paths": 5403,
+    "manifest_file_digests_verified": 5401,
+    "volume_sha256": {
+      "TGIS_FINAL_02_Replication_Part1.zip": "fd98c3778651cdea9cd7628eae473a8b58c993645d432e24616be6a614d5e0b7",
+      "TGIS_FINAL_02_Replication_Part2.zip": "ce76b7e106e6e1a931dfccc7e608428111ccfedc672851025b57ffea9ecb3c5e",
+      "TGIS_FINAL_02_Replication_Part3.zip": "023230af7a4f1681f9792443a5ab1b13eb2e09464763fab3227ebc9755da2955"
+    }
+  },
+  "full_archive_disclosure": "The three volumes were verified locally, but no raw source files or historical logs were uploaded as new scientific outputs.",
+  "limitations": [
+    "Substantial upstream computations in the complete archived research package remain unexecuted in this environment.",
+    "A historical strict cross-platform byte-identity acceptance in the October research package is FAIL, with separate numerical diagnostics; neither result was overwritten.",
+    "Third-party redistribution rights and all-author consent remain unconfirmed; no public release is authorized."
+  ]
+}

@@ -1,3 +1,4 @@
 # Independently executed here on CPython 3.13.5 (Linux).
 numpy==2.3.5
 scipy==1.17.0
+pyproj==3.8.0

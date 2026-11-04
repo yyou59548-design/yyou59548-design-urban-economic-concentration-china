@@ -15,6 +15,23 @@ python -m pip install -r requirements-core.txt
 python tests/run_core_checks.py
 ```
 
+
+### 2026年11月4日新增独立数学验收
+
+`tests/run_independent_oracles.py` 不调用历史峰值位置或原生产计算器，而是重新求解四城市实验B的81个平局根、两种相反的事件顺序、无标签拓扑反射构造的数值等价性，以及295城GDP与经纬度输入所确定的2021年珠三角名义GDP及可比增长链的峰值与门槛。另增加四种篡改情形的完整性拒绝测试。上述测试已在本地实际执行，属于**新增的独立检验**，但不是2,062个完整空间场和全部轮廓的从零再计算。
+
+10月28日完整科研归档的三卷ZIP已实际检查：5,403个互不重复路径、全部ZIP CRC及5,401个已解压科研文件SHA256通过，原输入保护清单也通过。完整归档本身不放入这个私有GitHub；`scripts/audit_full_archive.py` 可在本地重复检查。当前执行环境因缺少 `xlrd==2.0.1` 未能运行完整四阶段compact，所以不将其记为本轮通过。具体证据、操作和局限见 `docs/REPRODUCTION_COVERAGE_20261104.md`。
+
+新增执行命令：
+
+```bash
+python -m pip install -r requirements-core.txt
+python scripts/verify_manifest.py
+python tests/run_core_checks.py
+python tests/run_independent_oracles.py
+python tests/run_integrity_negative_tests.py
+```
+
 ### 不能据此宣称的事项
 
 这套核心程序**使用了已归档的峰和连通分量坐标**，没有重新发现全部连续峰或重建全部高值轮廓；没有完成2,062个空间场的七尺度全量重算，也没有从全部原始统计出版物逐页认证2,950条原始数据。完整科研归档包含上述其他计算程序与历史检验材料，但它们不自动构成当前发布包的新鲜运行证据。
