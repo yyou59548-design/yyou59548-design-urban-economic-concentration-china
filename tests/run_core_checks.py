@@ -13,6 +13,8 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"src"))
+from table_comparison import compare_csv
 
 ROOT=Path(__file__).resolve().parents[1]
 REF=ROOT/'data/references'
@@ -60,10 +62,15 @@ def main():
         assert abs(jaccard-0.9689207388098996)<1e-12
         assert j['identity_verification']['maximum_absolute_residuals']['change_identity_residual']<1e-10
         identical={}
+        semantic={}
+        comparison_reports={}
         for name,count in EXPECTED_CSV.items():
             assert lines_csv(joint/name)==count
-            identical[name]=sha256(joint/name)==sha256(REF/name)
-            if not identical[name]:raise AssertionError(f'Fresh result not byte-identical to archived table: {name}')
+            comparison_reports[name]=compare_csv(REF/name,joint/name)
+            identical[name]=comparison_reports[name]['byte_identical']
+            semantic[name]=comparison_reports[name]['semantic_equivalent']
+            if not semantic[name]:
+                raise AssertionError(f'Scientific CSV comparison FAILED for {name}: {comparison_reports[name]["errors"]}')
         run_cmd([sys.executable,'-B',str(ROOT/'src/experiment_b_reproduce.py'),
                  '--reference',str(REF/'Experiment_B_Recomputed_Tie_Path_81.csv'),'--output',str(exp)])
         b=json.loads((exp/'experiment_b_fresh_results.json').read_text(encoding='utf-8'))
@@ -72,6 +79,8 @@ def main():
         report={'status':'PASS','principal_annual_states':150,'principal_adjacent_year_pairs':120,
                 'specifications_with_a_contributor_change':4,'contributor_changes':8,
                 'minimum_jaccard_for_changed_labels':jaccard,'four_reference_tables_byte_identical':identical,
+                'four_reference_tables_semantically_equivalent':semantic,
+                'float_comparison_contract':comparison_reports,
                 'synthetic_experiment_b_fresh_solutions':81,'synthetic_max_ratio_error':b['max_absolute_tie_ratio_difference'],
                 'limitations':'Saved continuous summit and contour records are INPUTS for the joint audit; this suite does not fresh-recompute every summit/contour of the whole publication.'}
         print(json.dumps(report,indent=2))
