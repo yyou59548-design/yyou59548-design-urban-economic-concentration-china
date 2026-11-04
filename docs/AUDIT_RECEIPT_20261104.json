@@ -16,7 +16,7 @@
     "full_2062_field_regeneration": "NOT_RUN",
     "full_150_contour_from_zero_regeneration": "NOT_RUN",
     "source_cell_publisher_authentication": "NOT_COMPLETE",
-    "table_comparison_contract": "PASS_SMALL_NUMERIC_DIFFERENCES_REPORTED_AND_5_MATERIAL_CHANGES_REJECTED",
+    "table_comparison_contract": "PASS_NEAR_ZERO_DIAGNOSTIC_DRIFT_ACCEPTED_AND_6_MATERIAL_CHANGES_REJECTED",
     "all_150_prd_peak_solutions": "PASS_NO_SAVED_PEAK_SEEDS"
   },
   "independent_theory_results": {
@@ -71,6 +71,8 @@
   "github_ci_observations": {
     "first_push_41804731398": "FAILED_STRICT_BYTE_EQUALITY_JOINT_STATES_150",
     "same_commit_pr_41804805757": "PASS_ALL_TESTS",
-    "interpretation": "The original test did not log mismatched cells; root cause undetermined. A later version adds field-level diagnostics and strict semantic acceptance."
+    "interpretation": "The original test did not log mismatched cells; root cause undetermined. A later version adds field-level diagnostics and strict semantic acceptance.",
+    "third_commit_push_41806469241": "FAILED_STRICT_COMPARATOR_NEAR_ZERO_H_RECONSTRUCTION_DIAGNOSTIC_DELTA_1_3E_MINUS_16",
+    "third_commit_next_fix": "Explicit bounded-diagnostic comparison list; remote acceptance must be checked after upload."
   }
 }

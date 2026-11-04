@@ -3,8 +3,8 @@
 
 Production results must preserve row order, column order, identifiers, labels,
 statuses, boolean values and nonnumeric strings exactly. Numbers may differ
-only by <= 2e-11 relative + 1e-17 absolute; explicitly declared numerical
-identity residuals may vary below the paper's 1e-10 acceptance bound.
+only by <= 2e-11 relative + 1e-17 absolute. Explicitly enumerated
+computation-error diagnostics must each remain below the paper's 1e-10 bound.
 
 Return both byte_identity and semantic_identity. Never overwrite a reference,
 never interpret a semantic match as byte identity, and fail closed for invalid
@@ -20,6 +20,14 @@ from pathlib import Path
 REL_TOL = Decimal("2e-11")
 ABS_TOL = Decimal("1e-17")
 RESIDUAL_GUARD = Decimal("1e-10")
+DIAGNOSTIC_FIELDS = frozenset({
+    "annual_identity_residual",
+    "saved_margin_residual",
+    "independent_contribution_log_odds_residual",
+    "max_pair_contribution_relative_error",
+    "H_reconstruction_relative_error",
+    "change_identity_residual",
+})
 
 
 def sha256(p):
@@ -42,7 +50,7 @@ def compare_one(reference, actual, key):
     dr, da = decimal_value(reference), decimal_value(actual)
     if dr is not None and da is not None:
         # Identity residuals are numerical error measures, not substantive outcomes.
-        if "residual" in key.lower() and max(abs(dr), abs(da)) <= RESIDUAL_GUARD:
+        if key in DIAGNOSTIC_FIELDS and max(abs(dr), abs(da)) <= RESIDUAL_GUARD:
             return True, "bounded numerical residual"
         diff = abs(dr - da)
         if diff <= ABS_TOL + REL_TOL * max(abs(dr), abs(da)):
