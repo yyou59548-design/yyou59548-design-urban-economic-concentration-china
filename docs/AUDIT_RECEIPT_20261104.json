@@ -16,7 +16,8 @@
     "full_2062_field_regeneration": "NOT_RUN",
     "full_150_contour_from_zero_regeneration": "NOT_RUN",
     "source_cell_publisher_authentication": "NOT_COMPLETE",
-    "table_comparison_contract": "PASS_SMALL_NUMERIC_DIFFERENCES_REPORTED_AND_5_MATERIAL_CHANGES_REJECTED"
+    "table_comparison_contract": "PASS_SMALL_NUMERIC_DIFFERENCES_REPORTED_AND_5_MATERIAL_CHANGES_REJECTED",
+    "all_150_prd_peak_solutions": "PASS_NO_SAVED_PEAK_SEEDS"
   },
   "independent_theory_results": {
     "experiment_b_fresh_solutions": 81,
@@ -40,6 +41,16 @@
     "prd2021_growth_chain": {
       "leading_city": "深圳",
       "tie_ratio": 1.0962907580258399
+    },
+    "prd_150_local_peaks": {
+      "fresh_solutions": 150,
+      "position_max_gap_m": 7.108563587854031e-07,
+      "log_margin_max_gap": 3.478446697346982e-12,
+      "leading_label_mismatches": 0,
+      "specifications_with_switches": 4,
+      "switches": 8,
+      "signed_2021_minimum_specs": 30,
+      "signed_2022_rise_specs": 30
     }
   },
   "full_source_archive": {

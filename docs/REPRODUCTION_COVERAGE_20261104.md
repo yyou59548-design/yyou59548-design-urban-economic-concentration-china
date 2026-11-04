@@ -10,6 +10,7 @@
 | --- | --- | --- | --- |
 | GitHub core test | `tests/run_core_checks.py` on subset inputs and saved peak/component records | PASS; 150 states, 120 adjacent pairs, four specifications/eight switches; four reproduced tables byte-identical; 81 Experiment B roots | Independent checks at **archived** peak locations, not new detection |
 | New independent theory test | `tests/run_independent_oracles.py`; separate Gaussian derivatives and root equations | PASS; 81 new Experiment B solutions; both event orders; reflection control | No saved peak coordinates or original production solver used; **specific constructions only** |
+| New 150-target PRD peak reconstruction | `tests/run_prd_150_fresh_peaks.py` independently optimizes each targeted peak from 295-city GDP and projected coordinates; archived peak CSV used only after solving | PASS; 150 local peaks, max location gap 7.11e-7 m, 4 specifications/8 switches, 30/30 signed 2021 min and 2022 rise | Fresh **local peak positions**, not 150 full connected polygons or a global enumeration of all peaks |
 | New 2021 empirical peak test | The same independent test reprojects 295 supplied cities from WGS84 coordinates, constructs bandwidth and optimizes a continuous peak | PASS; nominal peak: Guangzhou leads, tie ratio about 1.09569987; growth-chain peak: Shenzhen leads, tie ratio about 1.09629076 | Two 2021 PRD fields, **not** all 2,062 GIS fields |
 | Cross-platform CSV comparison and its negative controls | `src/table_comparison.py`, `tests/run_table_contract_tests.py` | PASS locally; report byte equality separately, require row/column/category exact equality and per-cell numeric tolerance | Supports cross-platform scientific comparison without rewriting original references |
 | Manifest negative tests | `tests/run_integrity_negative_tests.py` | PASS; four deliberately corrupted or incomplete **temporary copies** rejected | Checks the integrity gate's ability to reject tampering, not independent scientific correctness |
@@ -21,7 +22,7 @@ Local recheck environment: Linux, CPython 3.13.5, NumPy 2.3.5, SciPy 1.17.0 and 
 
 ## Items not yet fully executed or authenticated
 
-1. The 2,062 seven-scale qualification records and the full set of upstream density fields, peaks and fixed-level contour polygons **from raw inputs**.
+1. The 2,062 seven-scale qualification records and the full set of upstream density fields and their **global peak enumeration** from raw inputs. All 150 **specified PRD local target peaks** have now also been re-solved from derived mass/coordinate inputs, but this is not the complete multi-region, multi-scale detector.
 2. A fresh full 150-contour regeneration and its complete geometric comparisons, rather than reading saved components/peak records.
 3. Full national and regional P₂ calculations, source-vintage alternatives, native SSTD/mtlib/Dionysus baseline campaigns, and complete numerical certificates for revised inputs.
 4. Independent page-by-page verification of all 2,950 original statistical source cells; reproducible computations do not establish third-party publication authentication.
@@ -37,6 +38,7 @@ python scripts/verify_manifest.py
 python tests/run_table_contract_tests.py
 python tests/run_core_checks.py
 python tests/run_independent_oracles.py
+python tests/run_prd_150_fresh_peaks.py
 python tests/run_integrity_negative_tests.py
 ```
 

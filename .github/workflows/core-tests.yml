@@ -23,4 +23,6 @@ jobs:
       - name: Repeat core verification for run-to-run stability
         run: python tests/run_core_checks.py
       - run: python tests/run_independent_oracles.py
+      - name: Re-solve 150 PRD peaks from GDP and coordinate inputs
+        run: python tests/run_prd_150_fresh_peaks.py
       - run: python tests/run_integrity_negative_tests.py
