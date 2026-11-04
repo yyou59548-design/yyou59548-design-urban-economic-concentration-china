@@ -1,0 +1,79 @@
+{
+  "report_date": "2026-11-04",
+  "paper": "Urban Economic Concentration in China: Spatial Structure and Changing City Contributions",
+  "status": "SCOPED_SCIENTIFIC_REEXECUTION_PASS_PROVENANCE_RESTRICTIONS_REMAIN",
+  "archive_volume_count": 3,
+  "full_archive_zip_paths": 5403,
+  "archive_manifest_verified_files": 5401,
+  "seven_scale": {
+    "status": "COMPLETE_VERIFIED",
+    "geometry_groups": 60,
+    "field_aliases": 2062,
+    "scale_comparisons": 14434,
+    "unique_density_evaluations": 1156,
+    "fresh_evaluations": 572,
+    "identity_verified_resumed_evaluations": 584,
+    "checkpoint_count_verified": 1156,
+    "field_qualification_discrepancies": 0,
+    "summary_sha256": "e7d95d6964d91261ed19b60f02319ea7e20ba200a5ee74368ca8d5c0e4b6f9de"
+  },
+  "contours": {
+    "status": "PASS",
+    "target_states": 150,
+    "principal_specifications": 30,
+    "categorical_mismatches": 0,
+    "max_area_relative_error": 7.993605777301127e-15,
+    "max_adjacent_jaccard_error": 1.887379141862766e-15,
+    "max_ref_jaccard_error": 1.5543122344752192e-15,
+    "max_peak_shift_m": 5.394538796564538e-7,
+    "min_adjacent_jaccard": 0.9640419332723327,
+    "summary_sha256": "91d4db96162cbc2fb5adf981c46a81e036048e6566015d2e7720d319603c24cb",
+    "csv_sha256": "acae363ab2f58192adaeb80d7e1fcf08119fa6e3aafebb11ccead090330ceedf",
+    "geometries_gzip_sha256": "b4cd87a63e5ccee41b67c8c0daaddfbeb60db11dc5bc8710c0de35aded17da24"
+  },
+  "p2": {
+    "status": "PASS",
+    "source_cases": 273,
+    "regions": [
+      "China",
+      "CC",
+      "SD"
+    ],
+    "unique_physical_evaluations": 35,
+    "principal_and_native_cases": 20,
+    "comparison_pairs": 144,
+    "positive_p2_changes": 144,
+    "main_reference_max_difference": 0,
+    "max_double_grid_difference": 6.31540062578928e-7,
+    "globally_monotone_certified": false,
+    "summary_sha256": "b1ecfca13d12685ef8f269f31c62288a4d0edfc4dfa2236e3d7ddb9073f78d06",
+    "source_results_csv_sha256": "bb4ff60f2bf8f487bc6bf7f54d8473b0a1cb22cfa41244dba9c4744b7c0875a4",
+    "endpoint_pairs_csv_sha256": "9ccab2b13a1817756910de20705a7e4fdd423205d929d66b69e1ecdc72b880db"
+  },
+  "source_qa": {
+    "status": "FAIL",
+    "checks_passed": 40,
+    "total_checks": 42,
+    "remaining_issues": [
+      "UNCHANGED_FORMAL_MODEL_numerical_safeguards.py",
+      "SPATIAL_RECORDED_SOURCE_AND_CODE_HASHES"
+    ],
+    "explanation": "A documented safe_domain source correction and historical spatial-output code/input provenance mismatch remain recorded; no past result hashes were rewritten."
+  },
+  "external_baselines": {
+    "sstd": "Recomputed distances on archived H0/H1 arrays; not rerun from original OD data.",
+    "saikia": "Original native-run evidence file hash integrity verified; current native executable not rerun."
+  },
+  "publication": {
+    "visibility": "private",
+    "third_party_redistribution_approved": false,
+    "public_license_assigned": false,
+    "doi_assigned": false
+  },
+  "limitations": [
+    "Full upstream computation used author-retained private October archives and derived vectors; their raw contents are not in this GitHub repository.",
+    "Original-publisher verification for all 2950 input cells remains incomplete.",
+    "The finite P2 acceptance test does not certify monotonicity at every continuous scale.",
+    "Third-party native benchmarks require separately permitted source retrieval and original environments."
+  ]
+}
