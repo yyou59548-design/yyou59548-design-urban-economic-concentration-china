@@ -4,7 +4,7 @@
 
 ## What the code independently checks
 
-The core empirical checker reconstructs WGS84 Albers coordinates, GDP shares and Gaussian bandwidth matrices from the supplied 295-city analysis vectors. At 150 **archived continuous peak locations**, it independently evaluates city contributions, validates leading contributor labels and forms 120 adjacent-year comparisons across 30 specifications. It reproduces the exact GDP-ratio and summit-location identity and compares four fresh output tables byte-for-byte against the archived reference tables.
+The core empirical checker reconstructs WGS84 Albers coordinates, GDP shares and Gaussian bandwidth matrices from the supplied 295-city analysis vectors. At 150 **archived continuous peak locations**, it independently evaluates city contributions, validates leading contributor labels and forms 120 adjacent-year comparisons across 30 specifications. It reproduces the exact GDP-ratio and summit-location identity and compares four fresh output tables against archived references. Both byte identity and strict per-cell scientific agreement are reported; changes to labels, statuses, row order, or materially different numerical results fail.
 
 The synthetic checker solves the stationary-point and equal-contribution equations **afresh** for all 81 parameter values in Experiment B, using the four coordinates, GDP masses and bandwidth written in the paper. It checks the negative-definite Hessian and that the two focal cities are the leading contributors. Archived results are comparison targets, not solver inputs.
 
@@ -26,7 +26,7 @@ Expected result: a JSON object with `"status": "PASS"`. The tests create outputs
 
 ## 4 November 2026 independent audit extension
 
-In addition to the original archived-peak joint-state check, `tests/run_independent_oracles.py` computes Gaussian gradients and stationary points **without reading saved peaks**. It independently solves **81 Experiment B contributor ties**, the **two opposite event-order constructions**, a **reflection/source-attribution control**, and the **2021 Pearl River Delta nominal and comparable-growth-chain peak/tie** using the supplied 295-city masses and geographic coordinates. Its results have been checked in a separate local Linux run. These checks add evidence for specific propositions and examples; they do **not** reconstruct all national fields, full contours or original statistical publications. `tests/run_integrity_negative_tests.py` tests rejection of a changed input byte, a missing reference, an untracked file and a changed manifest. Both are included in CI.
+In addition to the original archived-peak joint-state check, `tests/run_independent_oracles.py` computes Gaussian gradients and stationary points **without reading saved peaks**. It independently solves **81 Experiment B contributor ties**, the **two opposite event-order constructions**, a **reflection/source-attribution control**, and the **2021 Pearl River Delta nominal and comparable-growth-chain peak/tie** using the supplied 295-city masses and geographic coordinates. Its results have been checked in a separate local Linux run. These checks add evidence for specific propositions and examples; they do **not** reconstruct all national fields, full contours or original statistical publications. `tests/run_table_contract_tests.py` confirms that limited numeric formatting drift is reported separately from exact byte identity and that substantive discrepancies are rejected. `tests/run_integrity_negative_tests.py` tests rejection of a changed input byte, a missing reference, an untracked file and a changed manifest. Both are included in CI.
 
 The author-retained three-volume 28 October 2026 source archive has also been inspected **without uploading its content to GitHub**. Its 5,403 distinct ZIP entries passed CRC validation; 5,401 extracted file hashes passed the original release manifest; and the protected input verification passed. See `docs/REPRODUCTION_COVERAGE_20261104.md` and the read-only `scripts/audit_full_archive.py` for precise commands and scope. This is an **archive-integrity pass**, not a full re-execution of the 2,062 seven-scale fields. The compact four-stage runner could not run in the current local environment because `xlrd==2.0.1` is not installed, and no successful fresh full-pipeline run is claimed here.
 
@@ -35,6 +35,7 @@ To run the extended checked core:
 ```bash
 python -m pip install -r requirements-core.txt
 python scripts/verify_manifest.py
+python tests/run_table_contract_tests.py
 python tests/run_core_checks.py
 python tests/run_independent_oracles.py
 python tests/run_integrity_negative_tests.py

@@ -15,15 +15,32 @@
     "archived_compact_four_stage_fresh_run": "NOT_RUN_MISSING_XLRD_2_0_1",
     "full_2062_field_regeneration": "NOT_RUN",
     "full_150_contour_from_zero_regeneration": "NOT_RUN",
-    "source_cell_publisher_authentication": "NOT_COMPLETE"
+    "source_cell_publisher_authentication": "NOT_COMPLETE",
+    "table_comparison_contract": "PASS_SMALL_NUMERIC_DIFFERENCES_REPORTED_AND_5_MATERIAL_CHANGES_REJECTED"
   },
   "independent_theory_results": {
     "experiment_b_fresh_solutions": 81,
-    "experiment_b_ratios": {"alpha_0_10": 1.4086747663119072, "alpha_0_50": 1.0, "alpha_0_90": 0.7098870682678087},
-    "contributor_first_event_times": [0.34247296565942, 0.4747879198414802],
-    "component_first_event_times": [0.6770407279499374, 0.557091164462837],
-    "prd2021_nominal": {"leading_city": "广州", "tie_ratio": 1.0956998712571622},
-    "prd2021_growth_chain": {"leading_city": "深圳", "tie_ratio": 1.0962907580258399}
+    "experiment_b_ratios": {
+      "alpha_0_10": 1.4086747663119072,
+      "alpha_0_50": 1.0,
+      "alpha_0_90": 0.7098870682678087
+    },
+    "contributor_first_event_times": [
+      0.34247296565942,
+      0.4747879198414802
+    ],
+    "component_first_event_times": [
+      0.6770407279499374,
+      0.557091164462837
+    ],
+    "prd2021_nominal": {
+      "leading_city": "广州",
+      "tie_ratio": 1.0956998712571622
+    },
+    "prd2021_growth_chain": {
+      "leading_city": "深圳",
+      "tie_ratio": 1.0962907580258399
+    }
   },
   "full_source_archive": {
     "original_paths": 5403,
@@ -39,5 +56,10 @@
     "Substantial upstream computations in the complete archived research package remain unexecuted in this environment.",
     "A historical strict cross-platform byte-identity acceptance in the October research package is FAIL, with separate numerical diagnostics; neither result was overwritten.",
     "Third-party redistribution rights and all-author consent remain unconfirmed; no public release is authorized."
-  ]
+  ],
+  "github_ci_observations": {
+    "first_push_41804731398": "FAILED_STRICT_BYTE_EQUALITY_JOINT_STATES_150",
+    "same_commit_pr_41804805757": "PASS_ALL_TESTS",
+    "interpretation": "The original test did not log mismatched cells; root cause undetermined. A later version adds field-level diagnostics and strict semantic acceptance."
+  }
 }

@@ -11,6 +11,7 @@
 | GitHub core test | `tests/run_core_checks.py` on subset inputs and saved peak/component records | PASS; 150 states, 120 adjacent pairs, four specifications/eight switches; four reproduced tables byte-identical; 81 Experiment B roots | Independent checks at **archived** peak locations, not new detection |
 | New independent theory test | `tests/run_independent_oracles.py`; separate Gaussian derivatives and root equations | PASS; 81 new Experiment B solutions; both event orders; reflection control | No saved peak coordinates or original production solver used; **specific constructions only** |
 | New 2021 empirical peak test | The same independent test reprojects 295 supplied cities from WGS84 coordinates, constructs bandwidth and optimizes a continuous peak | PASS; nominal peak: Guangzhou leads, tie ratio about 1.09569987; growth-chain peak: Shenzhen leads, tie ratio about 1.09629076 | Two 2021 PRD fields, **not** all 2,062 GIS fields |
+| Cross-platform CSV comparison and its negative controls | `src/table_comparison.py`, `tests/run_table_contract_tests.py` | PASS locally; report byte equality separately, require row/column/category exact equality and per-cell numeric tolerance | Supports cross-platform scientific comparison without rewriting original references |
 | Manifest negative tests | `tests/run_integrity_negative_tests.py` | PASS; four deliberately corrupted or incomplete **temporary copies** rejected | Checks the integrity gate's ability to reject tampering, not independent scientific correctness |
 | Three 28 October source volumes | `scripts/audit_full_archive.py` on the three author-retained ZIPs and an extracted research folder | PASS; 5,403 unique ZIP entries, all volume CRCs, all 5,401 manifest SHA256 values | **Full archive integrity**, not fresh full scientific computation |
 | Protected original/companion input checks | Original `Replication_Inputs/verify_inputs.py` | PASS; 10 principal inputs, three companions, 46 supplemental files | Confirmed archived baseline bytes |
@@ -33,6 +34,7 @@ The author-retained October archive reports historical coverage of many of these
 ```bash
 python -m pip install -r requirements-core.txt
 python scripts/verify_manifest.py
+python tests/run_table_contract_tests.py
 python tests/run_core_checks.py
 python tests/run_independent_oracles.py
 python tests/run_integrity_negative_tests.py
@@ -78,3 +80,9 @@ For the **much more extensive** source-to-manuscript pipeline, use the archived 
 ## Publication gate
 
 **Keep this repository private.** The scripts and subset data have not been granted a public release licence. Some source values originate in third-party publications; derived coordinates have their own upstream licence/attribution questions. Before making the repository public, obtaining a DOI, issuing a public release or asserting complete data availability: verify rights, obtain all author approvals, complete the remaining scientific tests, fix author/citation metadata and update the manuscript's actual data-and-code statement. A private repository URL is not a public archival identifier.
+
+## CI variability discovered and followed up
+
+The first push-triggered GitHub Actions run for commit `1d8bbcb` (run 41804731398) **failed** at an exact-byte comparison of `Joint_States_150.csv`. A separate pull-request run for **the same code commit** (run 41804805757) passed all steps. This history is preserved. The old wrapper did not record the differing cells, so the cause **cannot be inferred as merely floating point** from that failure alone. The updated runner will report exact-byte results *and* compare every cell, rejecting any categorical, structural, or material numerical discrepancies and transparently reporting cells within its explicit numerical tolerance. Negative tests show that changes in a city label, an economically material density, a matrix entry, a residual above tolerance, or the row count fail. This is a scientific comparability check, **not** a claim of exact byte reproducibility.
+
+The updated CI also invokes the core checker twice in one job, alongside the explicit table-comparison negative tests; numerical equivalence and byte identity are displayed separately. Six separate local PYTHONHASHSEED settings passed with exact reference byte identity on the local platform, but this does not demonstrate cross-platform byte identity.

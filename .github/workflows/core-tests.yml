@@ -18,6 +18,9 @@ jobs:
           cache-dependency-path: requirements-core.txt
       - run: python -m pip install -r requirements-core.txt
       - run: python scripts/verify_manifest.py
+      - run: python tests/run_table_contract_tests.py
       - run: python tests/run_core_checks.py
+      - name: Repeat core verification for run-to-run stability
+        run: python tests/run_core_checks.py
       - run: python tests/run_independent_oracles.py
       - run: python tests/run_integrity_negative_tests.py
